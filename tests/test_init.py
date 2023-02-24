@@ -52,6 +52,14 @@ class TestInit(unittest.TestCase):
         chain = Chain.parse_from_chain('ethereum_sepolia')
         self.assertEqual(chain, Chain.ethereum_sepolia)
 
+    def test_parse_from_chain_string_ethereum_gusandbox(self):
+        chain = Chain.parse_from_chain('ethereum_gusandbox')
+        self.assertEqual(chain, Chain.ethereum_gusandbox)
+
+    def test_parse_from_chain_string_ethereum_joc(self):
+        chain = Chain.parse_from_chain('ethereum_joc')
+        self.assertEqual(chain, Chain.ethereum_joc)
+
     def test_parse_from_chain_string_mockchain(self):
         chain = Chain.parse_from_chain('mockchain')
         self.assertEqual(chain, Chain.mockchain)
@@ -83,6 +91,14 @@ class TestInit(unittest.TestCase):
     def test_parse_from_external_display_value_ethereum_sepolia(self):
         chain = Chain.parse_from_external_display_value('ethereumSepolia')
         self.assertEqual(chain, Chain.ethereum_sepolia)
+
+    def test_parse_from_external_display_value_ethereum_gusandbox(self):
+        chain = Chain.parse_from_external_display_value('ethereumGusandbox')
+        self.assertEqual(chain, Chain.ethereum_gusandbox)
+
+    def test_parse_from_external_display_value_ethereum_joc(self):
+        chain = Chain.parse_from_external_display_value('ethereumJoc')
+        self.assertEqual(chain, Chain.ethereum_joc)
 
     def test_parse_from_external_display_value_mockchain(self):
         chain = Chain.parse_from_external_display_value('mockchain')

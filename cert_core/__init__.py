@@ -9,6 +9,8 @@ CHAIN_ETHEREUM_MAINNET = 'ethereumMainnet'
 CHAIN_ETHEREUM_ROPSTEN = 'ethereumRopsten'
 CHAIN_ETHEREUM_GOERLI = 'ethereumGoerli'
 CHAIN_ETHEREUM_SEPOLIA = 'ethereumSepolia'
+CHAIN_ETHEREUM_GUSANDBOX = 'ethereumGusandbox'
+CHAIN_ETHEREUM_JOC = 'ethereumJoc'
 CHAIN_MOCKCHAIN = 'mockchain'
 
 # system value for chains, including specific network. Used in config files for example
@@ -19,6 +21,8 @@ SYS_CHAIN_ETHEREUM_MAINNET = 'ethereum_mainnet'
 SYS_CHAIN_ETHEREUM_ROPSTEN = 'ethereum_ropsten'
 SYS_CHAIN_ETHEREUM_GOERLI = 'ethereum_goerli'
 SYS_CHAIN_ETHEREUM_SEPOLIA = 'ethereum_sepolia'
+SYS_CHAIN_ETHEREUM_GUSANDBOX = 'ethereum_gusandbox'
+SYS_CHAIN_ETHEREUM_JOC = 'ethereum_joc'
 SYS_CHAIN_MOCKCHAIN = 'mockchain'
 
 # signature type, part of signature suite standard
@@ -63,6 +67,8 @@ class Chain(Enum):
     ethereum_ropsten = 5, BlockchainType.ethereum, CHAIN_ETHEREUM_ROPSTEN
     ethereum_goerli = 6, BlockchainType.ethereum, CHAIN_ETHEREUM_GOERLI
     ethereum_sepolia = 7, BlockchainType.ethereum, CHAIN_ETHEREUM_SEPOLIA
+    ethereum_gusandbox = 8, BlockchainType.ethereum, CHAIN_ETHEREUM_GUSANDBOX
+    ethereum_joc = 9, BlockchainType.ethereum, CHAIN_ETHEREUM_JOC
 
     def __new__(cls, enum_value, blockchain_type, external_display_value):
         obj = object.__new__(cls)
@@ -89,6 +95,10 @@ class Chain(Enum):
             return Chain.ethereum_goerli
         elif chain_string == SYS_CHAIN_ETHEREUM_SEPOLIA:
             return Chain.ethereum_sepolia
+        elif chain_string == SYS_CHAIN_ETHEREUM_GUSANDBOX:
+            return Chain.ethereum_gusandbox
+        elif chain_string == SYS_CHAIN_ETHEREUM_JOC:
+            return Chain.ethereum_joc
         else:
             raise UnknownChainError(chain_string)
 
@@ -110,6 +120,10 @@ class Chain(Enum):
             return Chain.ethereum_goerli
         elif external_display_value == CHAIN_ETHEREUM_SEPOLIA:
             return Chain.ethereum_sepolia
+        elif external_display_value == CHAIN_ETHEREUM_GUSANDBOX:
+            return Chain.ethereum_gusandbox
+        elif external_display_value == CHAIN_ETHEREUM_JOC:
+            return Chain.ethereum_joc
         else:
             raise UnknownChainError(external_display_value)
 
